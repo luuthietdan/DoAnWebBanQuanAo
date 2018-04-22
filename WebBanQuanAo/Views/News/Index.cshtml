@@ -1,0 +1,51 @@
+﻿@model List<WebBanQuanAo.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutNguoidung.cshtml";
+}
+<div class="container">
+    <div class="article-top">
+        <h3>Tin tức - Sự kiện</h3>
+        @{
+            var i = 0;
+        }
+        @foreach (var item in Model)
+        {
+            if (i % 2 == 0)
+            {
+                <div class="article-bottom">
+                    <div class="col-md-4 article-para">
+                        <a href="single.html">
+                            <img src="/Content/upload/img/news/@item.img" alt="image" class="img-responsive zoom-img">
+                        </a>
+                    </div>
+                    <div class="col-md-8 article-head">
+                        <h6><a href="#">@item.name</a></h6>
+                        <p>@item.description</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            }
+            else
+            {
+                <div class="article-bottom">
+                    <div class="col-md-8 article-head">
+                        <h6><a href="#">@item.name</a></h6>
+                        <p>@item.description</p>
+                    </div>
+                    <div class="col-md-4 article-para">
+                        <a href="single.html">
+                            <img src="/Content/upload/img/news/@item.img" alt="image" class="img-responsive zoom-img">
+                        </a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            }
+            i++;
+        }
+
+
+
+    </div>
+</div>
